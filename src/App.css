@@ -166,11 +166,30 @@
    /* speciality */
   --avatar-border-brand: var(--purple-1);
   --avatar-border-information: var(--blue-2);
-  --button-fill-brand: var(--purple-7);
-  --button-fill-focus: var(--purple-7);
-  --button-surface-brand-focus: var(--purple-3);
-  --button-surface-brand-hover: var(--purple-9);
-  --button-surface-secondary-hover: var(--purple-1);
+
+
+
+  --button-primary-bg: var(--purple-7);
+  --button-primary-text: var(--purple-0);
+  --button-primary-border: var(--purple-7);
+  --button-primary-hover: var(--purple-8);
+
+
+  --button-secondary-bg: var(--purple-2);
+  --button-secondary-text: var(--purple-7);
+  --button-secondary-border: var(--purple-2);
+  --button-secondary-hover: var(--purple-3);
+
+  --button-tertiary-bg: transparent;
+  --button-tertiary-text: var(--purple-7);
+  --button-tertiary-border: var(--purple-7);
+  --button-tertiary-hover: var(--purple-1);
+
+  --button-text-text: var(--purple-7);
+
+
+  --button-focus: var(--purple-7);
+
 
    /* charts */
   --charts-brand-base: var(--purple-3);
@@ -530,4 +549,107 @@
   --dark-text-success: var(--dark-green-11);
   --dark-text-tertiary: var(--dark-grey-7);
   --dark-text-warning: var(--dark-green-8);
-}
+
+
+
+
+
+
+  /* Typography Primitives */
+   --font-family-mulish: 'Mulish', sans-serif;
+ 
+   /* Font weights */
+   --font-weight-regular: 400;
+   --font-weight-medium: 500;
+   --font-weight-semibold: 600;
+   --font-weight-bold: 700;
+ 
+   /* Font sizes */
+   --font-size-12: 12px;
+   --font-size-14: 14px;
+   --font-size-16: 16px;
+   --font-size-18: 18px;
+   --font-size-20: 20px;
+   --font-size-22: 22px;
+   --font-size-24: 24px;
+   --font-size-28: 28px;
+   --font-size-32: 32px;
+   --font-size-40: 40px;
+ 
+   /* Line height */
+   --line-height-auto: normal;
+ }
+ 
+ /* Typography Semantics */
+ .text-title, .text-heading, .text-card-number-header {
+   font-family: var(--font-family-mulish);
+ }
+ 
+ .text-title {
+   font-weight: var(--font-weight-bold);
+   font-size: var(--font-size-22);
+   color: var(--text);
+ }
+ 
+ .text-subtitle {
+   font-family: var(--font-family-mulish);
+   font-weight: var(--font-weight-medium);
+   font-size: var(--font-size-16);
+   color: var(--text-secondary);
+ }
+ 
+ .text-heading {
+   font-weight: var(--font-weight-bold);
+   font-size: var(--font-size-16);
+   color: var(--text);
+ }
+ 
+ .text-subheading {
+   font-family: var(--font-family-mulish);
+   font-weight: var(--font-weight-medium);
+   font-size: var(--font-size-14);
+   color: var(--text-secondary);
+ }
+ 
+ .text-body, .text-body-medium, .text-body-bold, .text-label, .text-subtext, .text-placeholder {
+   font-family: var(--font-family-mulish);
+   font-size: var(--font-size-14);
+   color: var(--text);
+ }
+ 
+ .text-body {
+   font-weight: var(--font-weight-regular);
+   color: var(--text-secondary);
+ }
+ 
+ .text-body-medium {
+   font-weight: var(--font-weight-medium);
+   color: var(--text-secondary);
+ }
+ 
+ .text-body-bold {
+   font-weight: var(--font-weight-bold);
+   color: var(--text-secondary);
+ }
+ 
+ .text-label {
+   font-weight: var(--font-weight-bold);
+   font-size: var(--font-size-12);
+ }
+ 
+ .text-subtext, .text-hyperlink {
+   font-weight: var(--font-weight-regular);
+   font-size: var(--font-size-12);
+ }
+ 
+ .text-placeholder {
+   font-weight: var(--font-weight-semibold);
+   color: var(--text-tertiary);
+ }
+ 
+ .text-card-number-header {
+   font-weight: var(--font-weight-semibold);
+   font-size: var(--font-size-18);
+ }
+
+

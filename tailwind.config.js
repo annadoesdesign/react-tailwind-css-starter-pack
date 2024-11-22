@@ -4,6 +4,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      backgroundColor: {
+        "button-primary-hover": "var(--button-primary-hover-bg)",
+        "button-secondary-hover": "var(--button-secondary-hover-bg)",
+      },
       colors: {
   "blue": {
     "0": "#f1fbfe",
@@ -227,6 +231,14 @@ module.exports = {
     "radio": "var(--dark-grey-0)",
     "tags": "var(--dark-yellow-ty3)",
     "text": "var(--dark-green-8)"
+  },
+  "font": {
+    "family": "'Mulish', sans-serif",
+    "weight": "700",
+    "size": "40px"
+  },
+  "line": {
+    "height": "normal"
   }
 },
     },

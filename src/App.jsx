@@ -1,23 +1,22 @@
 import "./App.css";
 import Pill from "./Pill.jsx"; // Ensure the path is correct
 import useTheme from "./hooks/useTheme";
+import Button from "./Button.jsx"; // Ensure this path is correct
+
 
 function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <main className="min-h-screen bg-bg" theme={theme} style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
-   <button
-  onClick={toggleTheme}
-  style={{
-    backgroundColor: "var(--button-bg)",
-    color: "var(--button-text)",
-    borderColor: "var(--button-border)",
-  }}
-  className="p-2 border rounded"
->
-  Switch to {theme === "light" ? "Dark" : "Light"} Mode
-</button>
+         <Button
+        variant="primary"
+        size="medium"
+        onClick={toggleTheme}
+        leftIcon={theme === "light" ? <span>☀️</span> : <span>🌙</span>}
+      >
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      </Button>
 
 
        <Pill color="brown" theme={theme} >Brown Pill</Pill>

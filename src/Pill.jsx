@@ -1,30 +1,40 @@
 import React from "react";
-import useTheme from "./hooks/useTheme";
 
-const Pill = ({ children, color = "default", rounded = "full" , theme }) => {
-  
-  const variablePrefix = theme === "dark" ? "--dark-tags" : "--tags";
-  console.log (theme)
+const Pill = ({
+  children,
+  color = "default",
+  rounded = "full",
+  theme,
+  size = "medium",
+  leftIcon,
+  rightIcon,
+}) => {
+  const variablePrefix = theme === "light" ? "--tags" : "--dark-tags";
 
-  const borderRadius = rounded === "4px" ? "4px" : "9999px";
-  const backgroundColor = `var(${variablePrefix}-${color}-bg)`;
-  const textColor = `var(${variablePrefix}-${color}-text)`;
-  const borderColor = `var(${variablePrefix}-${color}-border)`;
+  const sizeClasses = {
+    small: "h-5 px-2 text-xs gap-1",
+    medium: "h-6 px-3 text-sm gap-2",
+    large: "h-8 px-4 text-base gap-3",
+  };
 
-  // Debugging log
-  console.log("Pill Styles:", { theme, backgroundColor, textColor, borderColor });
+  const roundedClass = rounded === "4px" ? "rounded-sm" : "rounded-full";
 
   return (
     <div
       style={{
-        backgroundColor: backgroundColor,
-        borderColor: borderColor,
-        color: textColor,
-        borderRadius: borderRadius,
+        backgroundColor: `var(${variablePrefix}-${color}-bg)`,
+        color: `var(${variablePrefix}-${color}-text)`,
+        borderColor: `var(${variablePrefix}-${color}-border)`,
       }}
-      className="h-6 px-2 border justify-center items-center gap-1 inline-flex"
+      className={`inline-flex items-center justify-center border ${roundedClass} ${sizeClasses[size]}`}
     >
-      <div className="text-xs font-semibold font-['SF Pro']">{children}</div>
+      {leftIcon && (
+        <span className="inline-flex items-center justify-center">{leftIcon}</span>
+      )}
+      <span className="font-semibold">{children}</span>
+      {rightIcon && (
+        <span className="inline-flex items-center justify-center">{rightIcon}</span>
+      )}
     </div>
   );
 };
