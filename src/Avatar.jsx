@@ -5,6 +5,8 @@ const Avatar = ({ size = "md", image, initials = "U", theme: propTheme }) => {
   const contextTheme = useThemeContext();
   const theme = propTheme || contextTheme;
 
+  const variablePrefix = theme === "light" ? "--" : "--dark-";
+
   const sizeClasses = {
     xs: "w-3 h-3 text-xs", // 12px
     sm: "w-4 h-4 text-sm", // 16px
@@ -19,9 +21,9 @@ const Avatar = ({ size = "md", image, initials = "U", theme: propTheme }) => {
     <div
       className={`inline-flex items-center justify-center rounded-full border ${selectedSize}`}
       style={{
-        backgroundColor: "var(--bg-surface)",
-        borderColor: "var(--border)",
-        color: "var(--text)",
+        backgroundColor: `var(${variablePrefix}bg)`, // Dynamic variable for background
+        borderColor: `var(${variablePrefix}border)`, // Dynamic variable for border
+        color: `var(${variablePrefix}text)`, // Add other variables as needed
       }}
     >
       {image ? (
