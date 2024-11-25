@@ -9,13 +9,13 @@ function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <main className="min-h-screen bg-bg" theme={theme} style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
-         style={{
-        backgroundColor: "var(--bg)", // Dynamically set page background
-        color: "var(--text)", // Ensure the text color matches the theme
-      }}
-      theme={theme} // Pass the theme for debugging or context purposes
-    >
+    <main
+  className="min-h-screen bg-bg"
+  style={{
+    backgroundColor: "var(--bg)", // Dynamically set page background
+    color: "var(--text)", // Ensure the text color matches the theme
+  }}
+>
          <Button
         variant="primary"
         size="medium"
