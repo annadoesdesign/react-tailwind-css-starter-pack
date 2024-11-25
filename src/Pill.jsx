@@ -19,14 +19,18 @@ const Pill = ({
 
   const roundedClass = rounded === "4px" ? "rounded-sm" : "rounded-full";
 
+  const hasBorder = rounded === "4px";
+
   return (
     <div
       style={{
         backgroundColor: `var(${variablePrefix}-${color}-bg)`,
         color: `var(${variablePrefix}-${color}-text)`,
-        borderColor: `var(${variablePrefix}-${color}-border)`,
+        ...(hasBorder && { borderColor: `var(${variablePrefix}-${color}-border)` }), // Apply border color only if hasBorder is true
       }}
-      className={`inline-flex items-center justify-center border ${roundedClass} ${sizeClasses[size]}`}
+      className={`inline-flex items-center justify-center ${roundedClass} ${sizeClasses[size]} ${
+        hasBorder ? "border" : ""
+      }`} // Conditionally add the "border" class
     >
       {leftIcon && (
         <span className="inline-flex items-center justify-center">{leftIcon}</span>

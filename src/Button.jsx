@@ -14,7 +14,7 @@ const Button = ({
 
   // Tailwind classes for size
   const sizeClasses = {
-    small: "h-8 px-3 text-sm",
+    small: "h-8 px-4 text-sm",
     medium: "h-10 px-4 text-base",
     large: "h-12 px-6 text-lg",
   };
@@ -58,7 +58,6 @@ const Button = ({
   return (
     <button
       style={{
-        backgroundColor: `var(${variablePrefix}-bg)`,
         color: `var(${variablePrefix}-text)`,
         borderColor: `var(${variablePrefix}-border)`,
       }}

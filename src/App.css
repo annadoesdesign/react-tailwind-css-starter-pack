@@ -168,26 +168,27 @@
   --avatar-border-information: var(--blue-2);
 
 
-
+  /* buttons */
   --button-primary-bg: var(--purple-7);
   --button-primary-text: var(--purple-0);
   --button-primary-border: var(--purple-7);
-  --button-primary-hover: var(--purple-8);
+  --button-primary-hover-bg: var(--purple-8);
 
 
   --button-secondary-bg: var(--purple-2);
   --button-secondary-text: var(--purple-7);
   --button-secondary-border: var(--purple-2);
-  --button-secondary-hover: var(--purple-3);
+  --button-secondary-hover-bg: var(--purple-3);
 
   --button-tertiary-bg: transparent;
   --button-tertiary-text: var(--purple-7);
   --button-tertiary-border: var(--purple-7);
-  --button-tertiary-hover: var(--purple-1);
+  --button-tertiary-hover-bg: var(--purple-1);
 
+    /* text only button */
   --button-text-text: var(--purple-7);
 
-
+  /* all buttons focus */
   --button-focus: var(--purple-7);
 
 
@@ -280,6 +281,20 @@
   --tags-trueyellow-icon: var(--yellow-ty2);
   --tags-trueyellow-text: var(--yellow-ty3);
 
+  --tags-green-bg: var(--green-1);
+  --tags-green-border: var(--green-2);
+  --tags-green-text: var(--green-11);
+
+  --tags-red-bg: var(--red-0);
+  --tags-red-border: var(--red-1);
+  --tags-red-text: var(--red-4);
+
+  --tags-yellow-bg: var(--yellow-0);
+  --tags-yellow-border: var(--yellow-1);
+  --tags-yellow-text: var(--yellow-8);
+
+
+
      /* text */
   --text-hyperlinks: var(--blue-13);
   --text: var(--grey-7);
@@ -293,6 +308,8 @@
   --text-tertiary: var(--grey-5);
   --text-warning: var(--yellow-8);
 
+
+  
   --dark-blue-0: #1f424f;
   --dark-blue-1: #285565;
   --dark-blue-10: #e6f5fb;
@@ -449,11 +466,27 @@
   --dark-icon-icon-warning: var(--dark-yellow-7);
   --dark-avatar-border-brand: var(--dark-grey-1);
   --dark-avatar-border-information: var(--dark-blue-2);
-  --dark-button-fill-brand: var(--dark-purple-7);
-  --dark-button-fill-focus: var(--dark-purple-7);
-  --dark-button-surface-brand-focus: var(--dark-purple-3);
-  --dark-button-surface-brand-hover: var(--dark-purple-7);
-  --dark-button-surface-secondary-hover: var(--dark-purple-1);
+
+
+
+  /* buttons */
+  --dark-button-primary-bg: var(--dark-purple-7);
+  --dark-button-primary-text: var(--dark-purple-0);
+  --dark-button-primary-border: var(--dark-purple-7);
+  --dark-button-primary-hover-bg: var(--dark-purple-8);
+
+
+  --dark-button-secondary-bg: var(--dark-purple-2);
+  --dark-button-secondary-text: var(--dark-purple-7);
+  --dark-button-secondary-border: var(--dark-purple-2);
+  --dark-button-secondary-hover-bg: var(--dark-purple-3);
+
+  --dark-button-tertiary-bg: transparent;
+  --dark-button-tertiary-text: var(--dark-purple-7);
+  --dark-button-tertiary-border: var(--dark-purple-7);
+  --dark-button-tertiary-hover-bg: var(--dark-purple-1);
+
+
   --dark-charts-brand-base: var(--dark-purple-3);
   --dark-charts-brand-base-alpha: #3e2f9d;
   --dark-charts-brand-contrast: var(--dark-purple-14);
@@ -549,7 +582,17 @@
   --dark-text-success: var(--dark-green-11);
   --dark-text-tertiary: var(--dark-grey-7);
   --dark-text-warning: var(--dark-green-8);
+  --dark-tags-green-bg: var(--dark-green-1);
+  --dark-tags-green-border: var(--dark-green-2);
+  --dark-tags-green-text: var(--dark-green-11);
 
+  --dark-tags-red-bg: var(--dark-red-0);
+  --dark-tags-red-border: var(--dark-red-1);
+  --dark-tags-red-text: var(--dark-red-4);
+
+  --dark-tags-yellow-bg: var(--dark-yellow-0);
+  --dark-tags-yellow-border: var(--dark-yellow-1);
+  --dark-tags-yellow-text: var(--dark-yellow-8);
 
 
 
