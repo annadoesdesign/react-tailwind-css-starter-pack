@@ -15,17 +15,35 @@ function App() {
     { label: "Option 3", subtext: "Description 3" },
   ];
 
-  
+  const pillColors = [
+    "yellow",
+    "brown",
+    "cobaltblue",
+    "coral",
+    "deepgreen",
+    "lavendar",
+    "olive",
+    "trueyellow",
+    "tangerine",
+    "seafoam",
+    "cyan",
+    "grey",
+    "purple",
+    "blue",
+    "outline",
+  ];
+
   return (
     <main
-  className="min-h-screen bg-bg"
-  theme={theme} // Dynamically set the theme
-  style={{
-    backgroundColor: theme === "light" ? "var(--bg)" : "var(--dark-bg)",
-    color: theme === "light" ? "var(--text)" : "var(--dark-text)",
-  }}
->
-         <Button
+      className="min-h-screen bg-bg"
+      theme={theme} // Dynamically set the theme
+      style={{
+        backgroundColor: theme === "light" ? "var(--bg)" : "var(--dark-bg)",
+        color: theme === "light" ? "var(--text)" : "var(--dark-text)",
+      }}
+    >
+      {/* Theme Toggle Button */}
+      <Button
         variant="primary"
         size="medium"
         onClick={toggleTheme}
@@ -34,6 +52,7 @@ function App() {
         Switch to {theme === "light" ? "Dark" : "Light"} Mode
       </Button>
 
+      {/* Card Component */}
       <div className="mt-6">
         <Card
           theme={theme}
@@ -52,47 +71,49 @@ function App() {
         </Card>
       </div>
 
+     {/* Pill Components */}
+<div className="mt-6 flex flex-wrap gap-4">
+  {pillColors.map((color) => (
+    <Pill 
+      key={color} 
+      color={color} 
+      theme={theme} 
+      className="inline-flex items-center px-3 py-1 w-auto"
+    >
+      {color.charAt(0).toUpperCase() + color.slice(1)} Pill
+    </Pill>
+  ))}
+</div>
 
-      <Pill color="yellow" theme={theme} >Yellow Pill</Pill>
-       <Pill color="brown" theme={theme} >Brown Pill</Pill>
-      <Pill color="cobaltblue" theme={theme} >Cobalt Blue Pill</Pill>
-      <Pill color="coral" theme={theme} >Coral Pill</Pill>
-      <Pill color="deepgreen" theme={theme} >Deep Green Pill</Pill>
-      <Pill color="lavendar" theme={theme} >Lavender Pill</Pill>
-      <Pill color="olive" theme={theme} >Olive Pill</Pill>
-      <Pill color="trueyellow" theme={theme} >True Yellow</Pill>
-      <Pill color="tangerine" theme={theme} >True Yellow</Pill>
-      <Pill color="seafoam" theme={theme} >True Yellow</Pill>
-      <Pill color="cyan" theme={theme} >True Yellow</Pill>
-      <Pill color="grey" theme={theme} >Grey</Pill>
-      <Pill color="purple" theme={theme} >Purple</Pill>
-      <Pill color="blue" theme={theme} >Blue</Pill>
-      <Pill color="outline" theme={theme} >Outline</Pill>
-      <Pill color="blue" rounded="4px" theme={theme} >200px Rounded Pill</Pill>
-      <Pill color="brown" rounded="4px" theme={theme} >Brown Pill</Pill>
-      <Pill color="cobaltblue" rounded="4px" theme={theme} >Cobalt Blue Pill</Pill>
-      <Pill color="coral" rounded="4px" theme={theme} >Coral Pill</Pill>
-      <Pill color="deepgreen" rounded="4px" theme={theme} >Deep Green Pill</Pill>
-      <Pill color="lavendar" rounded="4px" theme={theme} >Lavender Pill</Pill>
-      <Pill color="olive" rounded="4px" theme={theme} >Olive Pill</Pill>
-      <Pill color="trueyellow" rounded="4px" theme={theme} >True Yellow</Pill>
-      <Pill color="tangerine" rounded="4px" theme={theme} >True Yellow</Pill>
-      <Pill color="seafoam" rounded="4px" theme={theme} >True Yellow</Pill>
-      <Pill color="cyan" rounded="4px" theme={theme} >True Yellow</Pill>
-      <Pill color="grey" rounded="4px" theme={theme} >Grey</Pill>
-      <Pill color="purple" rounded="4px" theme={theme} >Purple</Pill>
-      <Pill color="blue" rounded="4px" theme={theme} >Blue</Pill>
-      <Pill color="outline" rounded="4px" theme={theme} >Outline</Pill>
+{/* Rounded Pill Variants */}
+<div className="mt-6 flex flex-wrap gap-4">
+  {pillColors.map((color) => (
+    <Pill 
+      key={`rounded-${color}`} 
+      color={color} 
+      rounded="4px" 
+      theme={theme} 
+      className="inline-flex items-center px-3 py-1 w-auto"
+    >
+      {color.charAt(0).toUpperCase() + color.slice(1)} Rounded Pill
+    </Pill>
+  ))}
+</div>
 
-      <Avatar initials="AE" size="lg" theme={theme} />
+      {/* Avatar Component */}
+      <div className="mt-6">
+        <Avatar initials="AE" size="lg" theme={theme} />
+      </div>
 
-      <ComboBox
+      {/* ComboBox Component */}
+      <div className="mt-6">
+        <ComboBox
           options={options}
           placeholder="Pick an option"
           size="md"
           theme={theme}
         />
-
+      </div>
     </main>
   );
 }

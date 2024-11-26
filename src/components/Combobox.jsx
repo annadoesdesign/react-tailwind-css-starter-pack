@@ -27,7 +27,7 @@ const ComboBox = ({
 
   return (
     <div
-      className={`relative flex items-center w-full max-w-md border rounded-md ${sizeClasses[size]}`}
+      className={`relative flex items-center w-full max-w-md shadow border rounded-md ${sizeClasses[size]}`}
       style={{
         backgroundColor: theme === "light" ? "var(--bg)" : "var(--dark-bg)",
         borderColor: theme === "light" ? "var(--border)" : "var(--dark-border)",
