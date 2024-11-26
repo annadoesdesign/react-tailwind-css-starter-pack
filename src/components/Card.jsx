@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Pill from "./Pill.jsx";
 import Avatar from "./Avatar.jsx";
 import Button from "./Button.jsx";
+import { useThemeContext } from "../ThemeContext.jsx";
+
 
 const Card = ({ 
   avatar, 
@@ -17,7 +19,6 @@ const Card = ({
   const resolvedTheme = theme || "light";
   const backgroundColor = resolvedTheme === "light" ? "var(--bg)" : "var(--dark-bg)";
   const textColor = resolvedTheme === "light" ? "var(--text)" : "var(--dark-text)";
-  const subTextColor = resolvedTheme === "light" ? "var(--text-secondary)" : "var(--dark-text-secondary)";
 
   return (
     <div
@@ -26,7 +27,7 @@ const Card = ({
         borderColor: "var(--border)",
         color: textColor,
       }}
-      className="w-[324px] h-auto p-4 rounded-xl shadow border flex flex-col gap-4"
+      className="w-[324px] h-auto p-4 rounded-xl shadow flex flex-col gap-4"
     >
       {/* Header Section */}
       <div className="flex items-center gap-3">

@@ -1,4 +1,12 @@
 import { useState, useEffect } from "react";
+import React, { createContext, useContext } from "react";
+
+const ThemeContext = createContext();
+
+export const useThemeContext = () => useContext(ThemeContext);
+export const ThemeProvider = ({ theme, children }) => (
+  <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+);
 
 const useTheme = () => {
   const [theme, setTheme] = useState(() => {
@@ -23,5 +31,6 @@ const useTheme = () => {
 
   return { theme, toggleTheme };
 };
+
 
 export default useTheme;

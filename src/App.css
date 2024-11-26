@@ -448,6 +448,8 @@
   --dark-bg-surface-success: var(--dark-green-0);
   --dark-bg-surface-warning: var(--dark-yellow-0);
   --dark-bg-surface-warning-hover: var(--dark-yellow-2);
+
+
   --dark-border: var(--dark-grey-3);
   --dark-border-brand: var(--dark-purple-7);
   --dark-border-brand-focused: var(--dark-purple-5);
@@ -458,6 +460,8 @@
   --dark-border-information-inverse: var(--dark-blue-0);
   --dark-border-success: var(--dark-green-11);
   --dark-border-warning: var(--dark-yellow-8);
+
+  
   --dark-icon-icon: var(--dark-grey-5);
   --dark-icon-icon-brand: var(--dark-purple-6);
   --dark-icon-icon-error: var(--dark-red-2);

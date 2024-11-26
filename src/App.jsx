@@ -4,16 +4,26 @@ import useTheme from "./hooks/useTheme";
 import Button from "./Button.jsx"; // Ensure this path is correct
 import Card from "./Card.jsx";
 import Avatar from "./Avatar.jsx";
+import ComboBox from "./components/Combobox.jsx";
 
 function App() {
   const { theme, toggleTheme } = useTheme();
 
+  const options = [
+    { label: "Option 1", icon: "🔥", subtext: "Description 1", pills: [{ text: "New", color: "blue" }] },
+    { label: "Option 2", icon: "⭐" },
+    { label: "Option 3", subtext: "Description 3" },
+  ];
+
+  
   return (
     <main
   className="min-h-screen bg-bg"
+  theme={theme} // Dynamically set the theme
   style={{
-    backgroundColor: "var(--bg)", // Dynamically set page background
-    color: "var(--text)", // Ensure the text color matches the theme
+    backgroundColor: theme === "light" ? "var(--bg)" : "var(--dark-bg)",
+    borderColor: theme === "light" ? "var(--border)" : "var(--dark-border)",
+    color: theme === "light" ? "var(--text)" : "var(--dark-text)",
   }}
 >
          <Button
@@ -77,6 +87,12 @@ function App() {
 
       <Avatar initials="AE" size="lg" theme={theme} />
 
+      <ComboBox
+          options={options}
+          placeholder="Pick an option"
+          size="md"
+          theme={theme}
+        />
 
     </main>
   );
