@@ -2,13 +2,11 @@ import React from "react";
 import { useThemeContext } from "../ThemeContext";
 
 const Avatar = ({ size = "md", image, initials = "U", theme: propTheme }) => {
-  // Always call the hook unconditionally
   const contextTheme = useThemeContext();
+  const theme = propTheme || contextTheme;
 
-  // Determine the theme (priority: propTheme > contextTheme > fallback)
-  const theme = propTheme || contextTheme || "light";
+  const variablePrefix = theme === "light" ? "--" : "--dark-";
 
-  // Tailwind size classes for the Avatar
   const sizeClasses = {
     xs: "w-3 h-3 text-xs", // 12px
     sm: "w-4 h-4 text-sm", // 16px
@@ -23,9 +21,9 @@ const Avatar = ({ size = "md", image, initials = "U", theme: propTheme }) => {
     <div
       className={`inline-flex items-center justify-center rounded-full border ${selectedSize}`}
       style={{
-        backgroundColor: theme === "light" ? "var(--bg-surface)" : "var(--dark-bg-surface)",
-        borderColor: theme === "light" ? "var(--border)" : "var(--dark-border)",
-        color: theme === "light" ? "var(--text)" : "var(--dark-text)",
+        backgroundColor: `var(${variablePrefix}bg)`, // Dynamic variable for background
+        borderColor: `var(${variablePrefix}border)`, // Dynamic variable for border
+        color: `var(${variablePrefix}text)`, // Add other variables as needed
       }}
     >
       {image ? (

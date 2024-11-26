@@ -12,7 +12,7 @@ const Pill = ({
   const variablePrefix = theme === "light" ? "--tags" : "--dark-tags";
 
   const sizeClasses = {
-    small: "h-5 px-2 text-sm gap-1",
+    small: "h-5 px-2 text-xs gap-1",
     medium: "h-6 px-3 text-sm gap-2",
     large: "h-8 px-4 text-base gap-3",
   };

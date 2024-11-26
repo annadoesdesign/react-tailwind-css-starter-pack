@@ -1,71 +1,75 @@
-import React, { useState } from "react";
+import React from "react";
 import Pill from "./Pill.jsx";
 import Avatar from "./Avatar.jsx";
-import Button from "./Button.jsx";
-import { useThemeContext } from "../ThemeContext.jsx";
-
 
 const Card = ({ 
   avatar, 
   title = "Title", 
   subtitle = "Subtitle", 
-  pillProps = {}, 
+  pillProps = {}, // Ensure pillProps is destructured with a default
   children, 
-  theme 
+  theme, 
+  showChildren = false // Control visibility of children content
 }) => {
-  const [showChildren, setShowChildren] = useState(false); // State to toggle children visibility
-
-  // Resolve theme and styles
-  const resolvedTheme = theme || "light";
-  const backgroundColor = resolvedTheme === "light" ? "var(--bg)" : "var(--dark-bg)";
-  const textColor = resolvedTheme === "light" ? "var(--text)" : "var(--dark-text)";
+  const backgroundColor = theme === "light" ? "var(--bg)" : "var(--dark-bg)";
+  const textColor = theme === "light" ? "var(--text)" : "var(--dark-text)";
+  const subTextColor = theme === "light" ? "var(--text-secondary)" : "var(--dark-text-secondary)";
 
   return (
     <div
       style={{
-        backgroundColor,
-        borderColor: "var(--border)",
+        backgroundColor: backgroundColor,
+        borderColor: theme === "light" ? "var(--border)" : "var(--dark-border)",
         color: textColor,
       }}
-      className="w-[324px] h-auto p-4 rounded-xl shadow flex flex-col gap-4"
+      className="w-[324px] h-auto p-4 rounded-xl shadow border flex flex-col gap-4"
     >
       {/* Header Section */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 grow">
         {avatar && (
           <Avatar
-            image={avatar && typeof avatar === "string" ? avatar : undefined}
-            initials={avatar && typeof avatar !== "string" ? avatar : "U"} // Default to "U" if no avatar
-            size="xl"
-            theme={resolvedTheme}
+            image={typeof avatar === "string" ? avatar : undefined} // Use avatar as image if it's a string, otherwise fall back to initials
+            initials={typeof avatar !== "string" ? avatar : undefined} // Use avatar as initials if it's not a string
+            size="xl" // Use 32px (lg size)
+            theme={theme} // Pass the theme to ensure dynamic styling
           />
         )}
-        <div className="flex flex-col gap-0">
+        <div className="flex flex-col gap-0 grow">
           <div className="flex items-center gap-2">
             <h3 className="font-bold">{title}</h3>
             {pillProps && (
-              <Pill {...pillProps} theme={resolvedTheme} size={pillProps.size || "small"} color={pillProps.color || "green"}>
+              <Pill 
+                size="small" 
+                {...pillProps} 
+                theme={theme}
+              >
                 {pillProps.text || "Default Pill Text"}
               </Pill>
             )}
           </div>
-          {/* Subtitle and Button on the Same Line */}
-          <div className="flex justify-between items-center">
-            <p style={{ color: subTextColor }} className="text-sm">
+          {/* Subtitle and Icon Button */}
+          <div className="flex grow items-center">
+            <p style={{ color: subTextColor }} className="flex text-sm grow">
               {subtitle}
             </p>
-            <Button
-              size="small"
-              variant="text"
-              onClick={() => setShowChildren((prev) => !prev)} // Functional state update
+            <button 
+              className="p-1 rounded-full hover:bg-gray-200 flex grow-0" 
+              onClick={() => alert("Icon button clicked!")}
+              style={{
+                backgroundColor: theme === "light" ? "var(--light-bg)" : "var(--dark-bg)",
+                color: theme === "light" ? "var(--text)" : "var(--dark-text)",
+              }}
             >
-              {showChildren ? "Hide Details" : "Show Details"}
-            </Button>
+              {/* Replace this with your preferred icon */}
+              <div className="material-icons justify-between">&rarr;</div>
+             
+            </button>
           </div>
         </div>
       </div>
 
       {/* Children Content */}
-      {showChildren && <div className="rounded-md p-2">{children}</div>}
+      {showChildren && children && <div className="rounded-md p-2">{children}</div>}
     </div>
   );
 };

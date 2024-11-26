@@ -1,71 +1,88 @@
 import React from "react";
-import Pill from "./Pill.jsx";
-import Avatar from "./Avatar.jsx";
-import Button from "./Button.jsx";
 
-const Card = ({ 
-  avatar, 
-  title = "Title", 
-  subtitle = "Subtitle", 
-  pillProps = {}, 
-  children, 
-  theme, 
-  showChildren = false, // Control visibility externally
+const Button = ({
+  children,
+  variant = "primary", // Supports primary, secondary, outline, and text
+  size = "medium",
+  disabled = false,
+  leftIcon,
+  rightIcon,
+  onClick,
 }) => {
-  const backgroundColor = theme === "light" ? "var(--bg)" : "var(--dark-bg)";
-  const textColor = theme === "light" ? "var(--text)" : "var(--dark-text)";
-  const subTextColor = theme === "light" ? "var(--text-secondary)" : "var(--dark-text-secondary)";
+  // Determine variable prefix based on variant
+  const variablePrefix = `--button-${variant}`;
+
+  // Tailwind classes for size
+  const sizeClasses = {
+    small: "h-8 px-4 text-sm",
+    medium: "h-10 px-4 text-base",
+    large: "h-12 px-6 text-lg",
+  };
+
+  // Tailwind classes for variants
+  const variantClasses = {
+    primary: `
+      bg-[var(--button-primary-bg)] 
+      text-[var(--button-primary-text)] 
+      border-[var(--button-primary-border)] 
+      hover:bg-[var(--button-primary-hover-bg)]
+    `,
+    secondary: `
+      bg-[var(--button-secondary-bg)] 
+      text-[var(--button-secondary-text)] 
+      border-[var(--button-secondary-border)] 
+      hover:bg-[var(--button-secondary-hover-bg)]
+    `,
+    outline: `
+      bg-transparent 
+      text-[var(--button-outline-text)] 
+      border-[var(--button-outline-border)] 
+      hover:bg-[var(--button-outline-hover-bg)]
+    `,
+    text: `
+      bg-transparent 
+      text-[var(--button-text-text)] 
+      border-transparent 
+      hover:bg-[var(--button-text-hover-bg)]
+    `,
+  };
+
+  // Disabled styles
+  const disabledClasses = disabled
+    ? "opacity-50 cursor-not-allowed"
+    : "hover:shadow-md active:shadow-none";
+
+  // Focus styles (adds a ring or outline using the focus color variable)
+  const focusClasses = "focus:outline-none focus:ring-2 focus:ring-[var(--purple-3)]";
 
   return (
-    <div
+    <button
       style={{
-        backgroundColor: backgroundColor,
-        borderColor: "var(--border)",
-        color: textColor,
+        color: `var(${variablePrefix}-text)`,
+        borderColor: `var(${variablePrefix}-border)`,
       }}
-      className="w-[324px] h-auto p-4 rounded-xl shadow border flex flex-col gap-4"
+      className={`inline-flex items-center justify-center border rounded transition-all ${sizeClasses[size]} ${variantClasses[variant]} ${disabledClasses} ${focusClasses}`}
+      disabled={disabled}
+      onClick={onClick}
     >
-      {/* Header Section */}
-      <div className="flex items-center gap-3">
-        {avatar && (
-          <Avatar
-            image={typeof avatar === "string" ? avatar : undefined}
-            initials={typeof avatar !== "string" ? avatar : undefined}
-            size="xl"
-            theme={theme}
-          />
-        )}
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
-            <h3 className="font-bold">{title}</h3>
-            {pillProps && (
-              <Pill {...pillProps} theme={theme}>
-                {pillProps.text || "Default Pill Text"}
-              </Pill>
-            )}
-          </div>
-          {/* Subtitle and Button on the Same Line */}
-          <div className="flex justify-between items-center">
-            <p style={{ color: subTextColor }} className="text-sm">
-              {subtitle}
-            </p>
-            <Button
-              size="small"
-              variant="text"
-              onClick={() => {
-                console.log("Button clicked!"); // Log the click for debugging
-                alert("Download clicked!"); // Example behavior
-              }}
-              leftIcon={<span className="material-icons">download</span>} // Material icon example
-            />
-          </div>
-        </div>
-      </div>
+      {/* Left Icon */}
+      {leftIcon && (
+        <span className="inline-flex items-center justify-center mr-2">
+          {leftIcon}
+        </span>
+      )}
 
-      {/* Children Content */}
-      {showChildren && <div className="rounded-md p-2">{children}</div>}
-    </div>
+      {/* Button Text */}
+      <span className="font-semibold">{children}</span>
+
+      {/* Right Icon */}
+      {rightIcon && (
+        <span className="inline-flex items-center justify-center ml-2">
+          {rightIcon}
+        </span>
+      )}
+    </button>
   );
 };
 
-export default Card;
+export default Button;

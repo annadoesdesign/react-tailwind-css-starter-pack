@@ -1,9 +1,9 @@
 import "./App.css";
-import Pill from "./Pill.jsx"; // Ensure the path is correct
+import Pill from "./components/Pill.jsx"; // Ensure the path is correct
 import useTheme from "./hooks/useTheme";
-import Button from "./Button.jsx"; // Ensure this path is correct
-import Card from "./Card.jsx";
-import Avatar from "./Avatar.jsx";
+import Button from "./components/Button.jsx";
+import Card from "./components/Card.jsx";
+import Avatar from "./components/Avatar.jsx";
 import ComboBox from "./components/Combobox.jsx";
 
 function App() {
@@ -22,7 +22,6 @@ function App() {
   theme={theme} // Dynamically set the theme
   style={{
     backgroundColor: theme === "light" ? "var(--bg)" : "var(--dark-bg)",
-    borderColor: theme === "light" ? "var(--border)" : "var(--dark-border)",
     color: theme === "light" ? "var(--text)" : "var(--dark-text)",
   }}
 >
